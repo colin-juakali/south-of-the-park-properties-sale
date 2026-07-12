@@ -1,0 +1,396 @@
+/* ============================================================
+   Tuala Property — design tokens
+   A land register, not a brochure: khaki survey paper, ink,
+   deep field green, a single clay-red stamp accent.
+   ============================================================ */
+
+:root {
+  --ink:        #2B2A1F;
+  --ink-soft:   #55523F;
+  --paper:      #DCD5BE;
+  --paper-2:    #CEC5A8;
+  --card:       #E9E4D2;
+  --forest:     #3F5439;
+  --forest-2:   #2E3E2A;
+  --rust:       #A8501F;
+  --river:      #5C7C8A;
+  --line:       #B3A883;
+  --white-ish:  #F6F3E9;
+
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Work Sans', -apple-system, sans-serif;
+  --mono:  'IBM Plex Mono', 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+/* ---------- header / masthead ---------- */
+
+.masthead {
+  border-bottom: 1px solid var(--line);
+  padding: 28px 6vw 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.masthead .stamp {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  border: 1px solid var(--forest);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.masthead .title-block a {
+  text-decoration: none;
+}
+
+.masthead h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(28px, 4vw, 40px);
+  margin: 4px 0 0;
+  letter-spacing: -0.01em;
+}
+
+.masthead .eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.contact-line {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-align: right;
+}
+.contact-line a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: 64px 6vw 40px;
+  max-width: 900px;
+}
+
+.hero .kicker {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 14px;
+}
+
+.hero h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.15;
+  margin: 0 0 18px;
+  color: var(--forest-2);
+}
+
+.hero p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+/* ---------- ledger (property list) ---------- */
+
+.ledger {
+  padding: 0 6vw 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 88px 1fr 220px;
+  gap: 32px;
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.entry:last-child { border-bottom: 1px solid var(--line); }
+
+.entry .plot-no {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--rust);
+  padding-top: 6px;
+}
+.entry .plot-no span {
+  display: block;
+  font-size: 34px;
+  font-family: var(--serif);
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.entry .body h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.entry .body .loc {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--river);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.entry .body p {
+  margin: 0 0 14px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+.entry .body .view-link {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--forest);
+  border-bottom: 1px solid var(--forest);
+  padding-bottom: 1px;
+}
+
+.sketch-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 10px;
+}
+.sketch-box svg { width: 100%; height: auto; display: block; }
+.sketch-box .caption {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.entry .stats {
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 10px;
+  color: var(--ink-soft);
+}
+.entry .stats b { color: var(--ink); }
+
+/* ---------- detail page ---------- */
+
+.detail {
+  padding: 48px 6vw 80px;
+  max-width: 1000px;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-header {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 36px;
+  margin-bottom: 36px;
+}
+
+.detail-header .sketch-box { width: 260px; flex-shrink: 0; }
+
+.detail-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--forest-2);
+}
+
+.detail-header .loc {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--river);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.status-row {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.status-row .stat {
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.status-row .stat .label {
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+.status-row .stat .value {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.detail-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+}
+
+.detail-body h4 {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  margin: 28px 0 12px;
+}
+.detail-body h4:first-child { margin-top: 0; }
+
+.detail-body ul {
+  margin: 0 0 8px;
+  padding-left: 18px;
+  color: var(--ink-soft);
+}
+.detail-body ul li { margin-bottom: 8px; }
+.detail-body p { color: var(--ink-soft); }
+
+.photo-note {
+  background: var(--card);
+  border: 1px dashed var(--line);
+  border-radius: 3px;
+  padding: 22px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.gallery-link {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--forest);
+  border-bottom: 1px solid var(--forest);
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.sidebar-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 20px 22px;
+}
+.sidebar-box h4 { margin-top: 0; }
+
+.enquire {
+  background: var(--forest);
+  color: var(--white-ish);
+  border-radius: 3px;
+  padding: 22px;
+  margin-top: 20px;
+}
+.enquire h4 { color: var(--white-ish); opacity: 0.75; }
+.enquire a {
+  display: block;
+  font-family: var(--mono);
+  font-size: 15px;
+  text-decoration: none;
+  margin-top: 8px;
+}
+.enquire a:hover { text-decoration: underline; }
+
+img.field-photo {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  padding: 24px 6vw 40px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 760px) {
+  .entry { grid-template-columns: 1fr; }
+  .entry .plot-no { display: flex; align-items: baseline; gap: 10px; padding-top: 0; }
+  .entry .plot-no span { margin-bottom: 0; font-size: 24px; }
+  .sketch-box { max-width: 220px; }
+  .detail-body { grid-template-columns: 1fr; }
+  .detail-header { flex-direction: column; }
+  .contact-line { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+a:focus-visible, .entry:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+}
