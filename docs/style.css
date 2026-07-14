@@ -302,18 +302,6 @@ a { color: inherit; }
 .detail-body ul li { margin-bottom: 8px; }
 .detail-body p { color: var(--ink-soft); }
 
-.photo-note {
-  background: var(--card);
-  border: 1px dashed var(--line);
-  border-radius: 3px;
-  padding: 22px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-soft);
-  text-align: center;
-  margin-bottom: 16px;
-}
-
 .carousel {
   margin-bottom: 20px;
 }

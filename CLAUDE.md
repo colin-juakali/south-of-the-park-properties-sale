@@ -18,21 +18,24 @@ python3 -m http.server -d docs 8000
 
 ## Architecture
 
-- `docs/index.html` — landing page listing all three parcels ("Plot A/B/C") as entries linking to their detail pages.
-- `docs/farm.html`, `docs/riverside.html`, `docs/roadside.html` — one detail page per parcel (Plot A/B/C respectively).
-- `docs/location.html` — shared location/access page (embedded Google Maps iframe + landmark list) linked from each detail page.
-- `docs/style.css` — single shared stylesheet for all pages, driven by CSS custom properties defined in `:root` (`--ink`, `--paper`, `--forest`, `--rust`, `--river`, etc.) plus three font-family tokens (`--serif` Fraunces, `--sans` Work Sans, `--mono` IBM Plex Mono). Change the design by editing tokens here rather than hardcoding colors/fonts in HTML.
+`docs/` holds one page per parcel (`farm.html`, `river-frontage.html`, `roadside.html` — Plot A/B/C respectively), an `index.html` landing page linking to all three, a shared `location.html`, and one shared `style.css`. Check `docs/` directly for the current file list rather than trusting an inventory here — it drifts (see `README.md` for a human-oriented listing, kept alongside this file).
 
-Every page repeats the same structural pattern — copy an existing page rather than building one from scratch:
-- `.masthead` — site header with title and contact line (email + phone), identical on every page.
+`style.css` is driven by CSS custom properties in `:root` (ink/paper/forest/rust/river color tokens, plus serif/sans/mono font tokens) — change the design by editing tokens there, not by hardcoding colors/fonts in HTML.
+
+Every page repeats the same structural pattern — copy an existing page rather than building one from scratch, since there's no templating to share markup across files:
+- `.masthead` — site header with title and contact line, identical on every page.
 - Index page only: `.hero` intro blurb, then `.ledger` containing one `.entry` per parcel (plot number, inline hand-drawn SVG sketch in `.sketch-box`, description, stats line, link to detail page).
-- Detail pages: `.detail` wrapper with `.back-link` back to index, `.detail-header` (same SVG sketch as the index card + title/loc/status-row), `.detail-body` two-column layout (land/location/infrastructure copy on the left, `.sidebar-box` "at a glance" summary + `.enquire` contact box on the right), and a `.photo-note` placeholder where real photos will eventually replace the Flickr links.
+- Detail pages: `.detail` wrapper with `.back-link` back to index, `.detail-header` (same SVG sketch as the index card + title/loc/status-row), `.detail-body` two-column layout (land/location/infrastructure copy on the left, `.sidebar-box` "at a glance" summary + `.enquire` contact box on the right).
 - `footer` — identical contact/tagline strip on every page.
 
-Each parcel's hand-drawn SVG sketch (property outline + distinguishing feature: SGR embankment for the farm, river bend + park label for the riverside plot, road line for the roadside plot) is duplicated between the index card and that parcel's detail-page header — keep both copies in sync if a sketch changes.
+Each parcel's hand-drawn SVG sketch (property outline + distinguishing feature: SGR embankment for the farm, river bend + park label for the river frontage plot, road line for the roadside plot) is duplicated between the index card and that parcel's detail-page header — keep both copies in sync if a sketch changes.
+
+## Also see
+
+`README.md` covers the same ground for a human reader, including a current file listing. Keep both in sync if the structure changes.
 
 ## Content notes
 
-- Contact details (`tuala.farm.sale@gmail.com`, `+254 795 916 278`) are repeated verbatim in the masthead, `mailto:`/`tel:` links, and footer of every page — update all occurrences together.
+- Contact details (`tuala.farm.sale@gmail.com`, `+254 795 916 278`) are repeated verbatim in the masthead, `mailto:`/`tel:`/WhatsApp (`wa.me/254795916278`) links, and footer of every page — update all occurrences together.
 - Prices are listed as "POA" (price on application) throughout; there are no numeric prices in the content.
-- Photos aren't hosted in this repo yet — pages currently link out to Flickr albums or show a `.photo-note` placeholder. If adding real images, use the existing `img.field-photo` class in `style.css`.
+- Real photos live in `docs/photos/` and are wired up via the `img.field-photo` / `.carousel` markup and classes in `style.css`. `farm.html` also keeps one extra outbound link to a fuller Flickr album — don't assume that pattern applies to the other pages without checking.
